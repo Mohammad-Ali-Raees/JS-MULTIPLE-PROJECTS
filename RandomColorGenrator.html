@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <button type="button" class="start">START</button>
+    <button type="button" class="stop">STOP</button>
+
+    <script>
+        let Mytime;
+        const div = document.createElement("div");
+        document.body.appendChild(div);
+        // I Have Make A Funtion Of Random Color
+
+        function RandomColors() {
+            let hex = "0123456789ABCDEF";
+            let color = "#";
+
+            for (let i = 0; i < 6; i++) {
+                color += hex[Math.floor(Math.random() * 16)]
+            }
+            return document.body.style.background = color;
+        }
+
+
+        // Start Time Interval
+        document.querySelector('.start').addEventListener('click', (e) => {
+            Mytime = setInterval(RandomColors, 1000);
+            console.log("Timer Start");
+
+        })
+
+        // Stop Time Interval
+        document.querySelector('.stop').addEventListener('click', (e) => {
+            clearInterval(Mytime);
+            console.log("Timer Stop");
+        })
+
+        // Key Code Generator
+        window.addEventListener("keyup", (e) => {
+            console.log(e.key);
+            div.innerHTML = e.key;
+        })
+
+    </script>
+</body>
+
+</html>
